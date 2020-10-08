@@ -22,6 +22,8 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-    ofxDrawingMachine myDrawingMachine;
+	ofxDrawingMachine myDrawingMachine;
+//	ofxDrawingMachine myDrawingMachine = {10, 10, 4000};
+	
 		
 };
