@@ -2,14 +2,11 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
-  myDrawingMachine.setup();
-
+    myDrawingMachine.setup();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
 
 }
 
@@ -20,9 +17,7 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
-  myDrawingMachine.drawLine(0, ofRandom(0, 100), ofRandom(0, 100), 0);
-
+    myDrawingMachine.drawLine(0, ofRandom(0, 100), ofRandom(0, 100), 0);
 }
 
 //--------------------------------------------------------------
@@ -71,7 +66,6 @@ void ofApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){
-
+void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
 }
