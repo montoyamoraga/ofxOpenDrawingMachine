@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-
+  myDrawingMachine.setup();
 
 }
 
@@ -21,6 +21,7 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 
+  myDrawingMachine.drawLine(0, ofRandom(0, 100), ofRandom(0, 100), 0);
 
 }
 
