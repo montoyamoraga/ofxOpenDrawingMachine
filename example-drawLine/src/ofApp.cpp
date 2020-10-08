@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    myDrawingMachine.setup();
+    myDrawingMachine.setup(10,10, 10);
 }
 
 //--------------------------------------------------------------
@@ -13,14 +13,18 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
+	if(ofGetKeyPressed(' '))
+	{
+		float y1 = ofRandom(0, 100);
+		float x2 = ofRandom(0, 100);
+		myDrawingMachine.drawLine(0, y1, x2, 0);
+		ofDrawLine(0, y1, x2, 0);
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    float y1 = ofRandom(0, 100);
-    float x2 = ofRandom(0, 100);
-    myDrawingMachine.drawLine(0, y1, x2, 0);
-    ofDrawLine(0, y1, x2, 0);
+    
 }
 
 //--------------------------------------------------------------
