@@ -9,11 +9,17 @@ class ofxDrawingMachine {
     int penDownServoVal;
     int feedRate;
 
-    ofxDrawingMachine(int newPenUpServoVal, int newPenDownServoVal, int newFeedRate);
+    ofxDrawingMachine(int _penUpServoVal = 90, int _penDownServoVal = 30, int _feedRate = 4000);
 
+	
     ofSerial serial;
 
-    void setup();
+	///\brief this is the setup.....
+	///\param _penUpServoVal  //range 0-90 default: 90
+	///\param _penDownServoVal  //range 0-90 default: 30
+	///\param _feedRate  //used for G1 G2 G3 default: 4000
+	
+    void setup(int _penUpServoVal = 90, int _penDownServoVal = 30, int _feedRate = 4000);
 
     void tipDown();
     void tipUp();

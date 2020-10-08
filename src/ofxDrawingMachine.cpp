@@ -1,13 +1,17 @@
 #include "ofxDrawingMachine.h"
 using namespace std;
 
-ofxDrawingMachine(int newPenUpServoVal, int newPenDownServoVal, int newFeedRate) {
-  int penUpServoVal = 90;  //range 0-90
-  int penDownServoVal = 30;  //range 0-90
-  int feedRate = 4000;  //used for G1 G2 G3
+
+ofxDrawingMachine::ofxDrawingMachine(int _penUpServoVal, int _penDownServoVal, int _feedRate) {
+	setup(_penUpServoVal, _penDownServoVal, _feedRate);
 }
 
-void ofxDrawingMachine::setup() {
+void ofxDrawingMachine::setup(int _penUpServoVal, int _penDownServoVal, int _feedRate) {
+	
+  penUpServoVal = _penUpServoVal;
+  penDownServoVal = _penDownServoVal;
+  feedRate = _feedRate;
+	
   serial.listDevices();
 
   vector <ofSerialDeviceInfo> serialDevices = serial.getDeviceList();
@@ -15,6 +19,7 @@ void ofxDrawingMachine::setup() {
   int baudRate = 115200;
 
   serial.setup(0, baudRate);
+	
 }
 
 void ofxDrawingMachine::tipUp(){
