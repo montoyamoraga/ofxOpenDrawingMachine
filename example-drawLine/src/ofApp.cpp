@@ -17,7 +17,10 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    myDrawingMachine.drawLine(0, ofRandom(0, 100), ofRandom(0, 100), 0);
+    float y1 = ofRandom(0, 100);
+    float x2 = ofRandom(0, 100);
+    myDrawingMachine.drawLine(0, y1, x2, 0);
+    ofDrawLine(0, y1, x2, 0);
 }
 
 //--------------------------------------------------------------

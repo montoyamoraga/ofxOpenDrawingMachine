@@ -1,4 +1,5 @@
 #include "ofxDrawingMachine.h"
+using namespace std;
 
 ofxDrawingMachine(int newPenUpServoVal, int newPenDownServoVal, int newFeedRate) {
   int penUpServoVal = 90;  //range 0-90
@@ -40,7 +41,7 @@ void ofxDrawingMachine::tipMoveXY(float x, float y) {
     for(int i = 0; i < sizeof(buf); i++){
             buf[i] = str[i];
     }
-    serial.writeBytes(&buf[0], sizeof(buf))
+    serial.writeBytes(&buf[0], sizeof(buf));
 }
 
 void ofxDrawingMachine::tipLinearInterpolation(float x, float y) {
@@ -58,5 +59,4 @@ void ofxDrawingMachine::drawLine(float x1, float y1, float x2, float y2) {
     tipDown();
     tipLinearInterpolation(x2, y2);
     tipUp();
-    ofDrawLine(x1, y1, x2, y2);
 }
