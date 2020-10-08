@@ -6,7 +6,7 @@ This is a project by [Gaurav Patekar](https://www.media.mit.edu/people/gauravp/)
 
 ## Code
 
-* [example-drawLine](): example for drawing a line.
+* [example-drawLine/](example-drawLine): example for drawing a line.
 * [src/](src/): source code of this openFrameworks addon.
 
 
