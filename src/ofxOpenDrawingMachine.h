@@ -2,6 +2,9 @@
 
 #include "ofSerial.h"
 
+// import OpenSoundControl addon
+#include "ofxOsc.h"
+
 class ofxOpenDrawingMachine {
   public:
     
