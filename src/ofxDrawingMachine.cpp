@@ -22,7 +22,7 @@ void ofxDrawingMachine::setup(int _penUpServoVal, int _penDownServoVal, int _fee
 	
 }
 
-void ofxDrawingMachine::tipUp(){
+void ofxDrawingMachine::instrumentUp(){
     string str = "M03 S" + to_string(penUpServoVal) + "\n";
     unsigned char buf[str.length()];
     for(int i = 0; i < sizeof(buf); i++){
@@ -31,7 +31,7 @@ void ofxDrawingMachine::tipUp(){
     serial.writeBytes(&buf[0], sizeof(buf));
 }
 
-void ofxDrawingMachine::tipDown() {
+void ofxDrawingMachine::instrumentDown() {
     string str = "M03 S" + to_string(penDownServoVal) + "\n";
     unsigned char buf[str.length()];
     for(int i = 0; i < sizeof(buf); i++){
@@ -40,7 +40,7 @@ void ofxDrawingMachine::tipDown() {
     serial.writeBytes(&buf[0], sizeof(buf));
 }
 
-void ofxDrawingMachine::tipMoveXY(float x, float y) {
+void ofxDrawingMachine::instrumentMoveTo(float newX, float newY) {
     string str = "G00 X" + to_string(x) + " Y" + to_string(y) + "\n";
     unsigned char buf[str.length()];
     for(int i = 0; i < sizeof(buf); i++){
@@ -49,7 +49,7 @@ void ofxDrawingMachine::tipMoveXY(float x, float y) {
     serial.writeBytes(&buf[0], sizeof(buf));
 }
 
-void ofxDrawingMachine::tipLinearInterpolation(float x, float y) {
+void ofxDrawingMachine::instrumentDrawTo(float newX, float newY) {
     string str = "G01 X " + to_string(x) + " Y " + to_string(y) +  " F " + to_string(feedRate) + "\n";
     unsigned char buf[str.length()];
     for(int i = 0; i < sizeof(buf); i++){
@@ -58,10 +58,10 @@ void ofxDrawingMachine::tipLinearInterpolation(float x, float y) {
     serial.writeBytes(&buf[0], sizeof(buf));
 }
           
-void ofxDrawingMachine::drawLine(float x1, float y1, float x2, float y2) {
+void ofxDrawingMachine::drawLine(float startX, float startY, float endX, float endY) {
     tipUp();
-    tipMoveXY(x1, y1);
+    tipMoveTo(x1, y1);
     tipDown();
-    tipLinearInterpolation(x2, y2);
+    tipDrawTo(x2, y2);
     tipUp();
 }

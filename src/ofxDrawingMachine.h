@@ -18,18 +18,29 @@ class ofxDrawingMachine {
 	///\param _penUpServoVal  //range 0-90 default: 90
 	///\param _penDownServoVal  //range 0-90 default: 30
 	///\param _feedRate  //used for G1 G2 G3 default: 4000
-	
     void setup(int _penUpServoVal = 90, int _penDownServoVal = 30, int _feedRate = 4000);
+    
+    ///\brief moves the  instrument downwards to the drawing surface
+    void instrumentDown();
+    
+    ///\brief moves the  instrument upwards away from the drawing surface
+    void instrumentUp();
 
-    void tipDown();
-    void tipUp();
+    ///\brief moves the instrument to a new XY position
+    ///\param newX // new x position
+    ///\param newY // new y position
+    void instrumentMoveTo(float newX, float newY);
 
-    // g00 rapid positioning
-    void tipMoveXY(float x, float y);
-
-    // g01 linear interpolation
-    void tipLinearInterpolation(float x, float y);
-          
-    void drawLine(float x1, float y1, float x2, float y2);
+    ///\brief uses the instrument to draw from current position to new XY position
+    ///\param newX // new x position
+    ///\param newY // new y position
+    void instrumentDrawTo(float newX, float newY);
+    
+    ///\brief draws line between start point and end point
+    ///\param startX // x position of starting point
+    ///\param startY // y position of starting point
+    ///\param endX // x position of ending point
+    ///\param endY // y position of ending point
+    void drawLine(float startX, float startY, float endX, float endY);
 
 };
