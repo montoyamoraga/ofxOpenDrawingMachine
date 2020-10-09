@@ -1,1 +1,1 @@
-ofxDrawingMachine
+ofxOpenDrawingMachine

@@ -9,7 +9,7 @@
 		<string>46</string>
 		<key>objects</key>
 		<dict>
-			<key>A6ACC64E74BFE2240D2CF243</key>
+			<key>F25CFA9C60B22A8045770DA7</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -18,18 +18,18 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>name</key>
-				<string>ofxDrawingMachine.h</string>
+				<string>ofxOpenDrawingMachine.h</string>
 				<key>path</key>
-				<string>../../../addons/ofxDrawingMachine/src/ofxDrawingMachine.h</string>
+				<string>../../../addons/ofxOpenDrawingMachine/src/ofxOpenDrawingMachine.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>0C1302F476C2C7D8F45E2BD1</key>
+			<key>E3C2C8116B68C0C505D8CD67</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>45CEA9713037564BD3CC01FC</string>
-					<string>A6ACC64E74BFE2240D2CF243</string>
+					<string>E08DE94204A95452FF56575C</string>
+					<string>F25CFA9C60B22A8045770DA7</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -38,27 +38,27 @@
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>B2A4F7225BC080A859FE9389</key>
+			<key>72E1D370D9726A4159014CB1</key>
 			<dict>
 				<key>children</key>
 				<array>
-					<string>0C1302F476C2C7D8F45E2BD1</string>
+					<string>E3C2C8116B68C0C505D8CD67</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
 				<key>name</key>
-				<string>ofxDrawingMachine</string>
+				<string>ofxOpenDrawingMachine</string>
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
-			<key>96E69DC4C70B46A38EEBA2CD</key>
+			<key>EDE3F23E5DDDAF1DD8407357</key>
 			<dict>
 				<key>fileRef</key>
-				<string>45CEA9713037564BD3CC01FC</string>
+				<string>E08DE94204A95452FF56575C</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>45CEA9713037564BD3CC01FC</key>
+			<key>E08DE94204A95452FF56575C</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.cpp.cpp</string>
@@ -67,9 +67,9 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>name</key>
-				<string>ofxDrawingMachine.cpp</string>
+				<string>ofxOpenDrawingMachine.cpp</string>
 				<key>path</key>
-				<string>../../../addons/ofxDrawingMachine/src/ofxDrawingMachine.cpp</string>
+				<string>../../../addons/ofxOpenDrawingMachine/src/ofxOpenDrawingMachine.cpp</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
@@ -243,7 +243,8 @@ fi
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
-						<string>../../../addons/ofxDrawingMachine/src</string>
+						<string>src</string>
+						<string>../../../addons/ofxOpenDrawingMachine/src</string>
 					</array>
 					<key>MACOSX_DEPLOYMENT_TARGET</key>
 					<string>10.9</string>
@@ -286,7 +287,8 @@ fi
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
-						<string>../../../addons/ofxDrawingMachine/src</string>
+						<string>src</string>
+						<string>../../../addons/ofxOpenDrawingMachine/src</string>
 					</array>
 					<key>ICON</key>
 					<string>$(ICON_NAME_RELEASE)</string>
@@ -322,7 +324,7 @@ fi
 			<dict>
 				<key>children</key>
 				<array>
-					<string>B2A4F7225BC080A859FE9389</string>
+					<string>72E1D370D9726A4159014CB1</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -3088,7 +3090,8 @@ fi
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
-						<string>../../../addons/ofxDrawingMachine/src</string>
+						<string>src</string>
+						<string>../../../addons/ofxOpenDrawingMachine/src</string>
 					</array>
 					<key>MACOSX_DEPLOYMENT_TARGET</key>
 					<string>10.9</string>
@@ -3151,7 +3154,8 @@ fi
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
-						<string>../../../addons/ofxDrawingMachine/src</string>
+						<string>src</string>
+						<string>../../../addons/ofxOpenDrawingMachine/src</string>
 					</array>
 					<key>MACOSX_DEPLOYMENT_TARGET</key>
 					<string>10.9</string>
@@ -3178,7 +3182,7 @@ fi
 				<array>
 					<string>E4B69E200A3A1BDC003C02F2</string>
 					<string>E4B69E210A3A1BDC003C02F2</string>
-					<string>96E69DC4C70B46A38EEBA2CD</string>
+					<string>EDE3F23E5DDDAF1DD8407357</string>
 				</array>
 				<key>isa</key>
 				<string>PBXSourcesBuildPhase</string>
@@ -3278,7 +3282,8 @@ fi
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
-						<string>../../../addons/ofxDrawingMachine/src</string>
+						<string>src</string>
+						<string>../../../addons/ofxOpenDrawingMachine/src</string>
 					</array>
 					<key>ICON</key>
 					<string>$(ICON_NAME_DEBUG)</string>
@@ -3330,7 +3335,8 @@ fi
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
 						<string>src</string>
-						<string>../../../addons/ofxDrawingMachine/src</string>
+						<string>src</string>
+						<string>../../../addons/ofxOpenDrawingMachine/src</string>
 					</array>
 					<key>ICON</key>
 					<string>$(ICON_NAME_RELEASE)</string>

@@ -1,16 +1,15 @@
-#pragma ofxDrawingMachine
+#pragma ofxOpenDrawingMachine
 
 #include "ofSerial.h"
 
-class ofxDrawingMachine {
+class ofxOpenDrawingMachine {
   public:
     
-    int penUpServoVal; 
-    int penDownServoVal;
+    int servoUp;
+    int servoDown;
     int feedRate;
 
-    ofxDrawingMachine(int _penUpServoVal = 90, int _penDownServoVal = 30, int _feedRate = 4000);
-
+    ofxOpenDrawingMachine(int newServoUp = 90, int newServoDown = 30, int newFeedRate = 4000);
 	
     ofSerial serial;
 

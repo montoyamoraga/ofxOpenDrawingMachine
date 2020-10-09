@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    myDrawingMachine.setup(10,10, 10);
+    myMachine.setup(10,10, 10);
 }
 
 //--------------------------------------------------------------
@@ -17,7 +17,7 @@ void ofApp::draw(){
 	{
 		float y1 = ofRandom(0, 100);
 		float x2 = ofRandom(0, 100);
-		myDrawingMachine.drawLine(0, y1, x2, 0);
+        myMachine.drawLine(0, y1, x2, 0);
 		ofDrawLine(0, y1, x2, 0);
 	}
 }

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxDrawingMachine.h"
+#include "ofxOpenDrawingMachine.h"
 
 class ofApp : public ofBaseApp{
 
@@ -22,8 +22,6 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-	ofxDrawingMachine myDrawingMachine;
-//	ofxDrawingMachine myDrawingMachine = {10, 10, 4000};
-	
+    ofxOpenDrawingMachine myMachine;
 		
 };
