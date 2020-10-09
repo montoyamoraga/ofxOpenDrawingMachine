@@ -9,7 +9,7 @@ void ofxOpenDrawingMachine::setup(int newServoUp, int newServoDown, int newFeedR
   servoUp = newServoUp;
   servoDown = newServoDown;
   feedRate = newFeedRate;
-	
+
   serial.listDevices();
 
   std::vector <ofSerialDeviceInfo> serialDevices = serial.getDeviceList();
@@ -62,4 +62,13 @@ void ofxOpenDrawingMachine::drawLine(float startX, float startY, float endX, flo
     instrumentDown();
     instrumentDrawTo(endX, endY);
     instrumentUp();
+}
+
+void ofxOpenDrawingMachine::keyboardControl(int key) {
+    if (key == 'd') {
+        instrumentDown();
+    }
+    else if (key == 'u') {
+        instrumentUp();
+    }
 }

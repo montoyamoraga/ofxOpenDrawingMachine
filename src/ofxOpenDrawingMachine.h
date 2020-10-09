@@ -16,7 +16,7 @@ class ofxOpenDrawingMachine {
 	
     ofSerial serial;
 
-	///\brief this is the setup.....
+	///\brief setup() sets the initial conditions
 	///\param _penUpServoVal  //range 0-90 default: 90
 	///\param _penDownServoVal  //range 0-90 default: 30
 	///\param _feedRate  //used for G1 G2 G3 default: 4000
@@ -44,5 +44,8 @@ class ofxOpenDrawingMachine {
     ///\param endX // x position of ending point
     ///\param endY // y position of ending point
     void drawLine(float startX, float startY, float endX, float endY);
+    
+    ///\brief controls the machine with key presses
+    void keyboardControl(int key);
 
 };
