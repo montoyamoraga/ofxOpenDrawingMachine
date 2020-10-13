@@ -65,6 +65,7 @@ class ofxOpenDrawingMachine {
     void drawCircle(float posX, float posY, float radius);
     
     ///\brief controls the machine with key presses
+    ///\param key // value of key pressed
     void keyboardControl(int key);
 
 };
