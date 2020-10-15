@@ -8,8 +8,9 @@ This repository is an [openFrameworks addon](https://openframeworks.cc/) for int
 
 ## Code
 
-* [example-drawCircle/](example-drawCircle): example for drawing a circle.
-* [example-drawLine/](example-drawLine): example for drawing a line.
+* [example-drawCircle/](example-drawCircle): example, drawing a circle.
+* [example-drawLine/](example-drawLine): example, drawing a line.
+* [example-setup/](example/setup): example, setting up.
 * [src/](src/): source code of this openFrameworks addon.
 
 ## License

@@ -1,30 +1,55 @@
 #pragma ofxOpenDrawingMachine
 
+// import ofSerial from openFrameworks
 #include "ofSerial.h"
 
 // import OpenSoundControl addon
 #include "ofxOsc.h"
 
+
 class ofxOpenDrawingMachine {
+
   public:
     
+    ///\brief servo up position, range 0-90
     int servoUp;
+
+    ///\brief servo down position, range 0-90
     int servoDown;
+
+    ///\brief feed rate, controls speed
     int feedRate;
     
+    ///\brief serial object for communication
     ofSerial serial;
+
+    ///\brief baud rate for serial communication
     int baudRate;
-    std::string portName;
-    int portIndex;
+
+    ///\brief string vector for names of serial ports
     std::vector<std::string> availablePorts;
 
+    ///\brief name of serial port used for connection
+    std::string portName;
+
+    ///\brief index of serial port used for connection
+    int portIndex;
+
+
+
+    ///\brief constructor method
+    ///\brief setup() sets the initial conditions
+    ///\param newBaudRate // baud rate for serial, default 115200
+    ///\param newServoUp  // range 0-90 default: 90
+    ///\param newServoDown  / /range 0-90 default: 30
+    ///\param newFeedRate  // used for G1 G2 G3 default: 4000
     ofxOpenDrawingMachine(int newBaudRate = 115200, int newServoUp = 90, int newServoDown = 30, int newFeedRate = 4000);
     
-	///\brief setup() sets the initial conditions
-    ///\param newBaudRate // baudRate for serial connection, default 115200
-	///\param _penUpServoVal  // range 0-90 default: 90
-	///\param _penDownServoVal  / /range 0-90 default: 30
-	///\param _feedRate  // used for G1 G2 G3 default: 4000
+    ///\brief setup() sets the initial conditions
+    ///\param newBaudRate // baud rate for serial, default 115200
+    ///\param newServoUp  // range 0-90 default: 90
+    ///\param newServoDown  / /range 0-90 default: 30
+    ///\param newFeedRate  // used for G1 G2 G3 default: 4000
     void setup(int newBaudRate = 115200, int newServoUp = 90, int newServoDown = 30, int newFeedRate = 4000);
     
     std::vector<std::string> getAvailablePorts();
@@ -33,6 +58,8 @@ class ofxOpenDrawingMachine {
     void connect();
     
     bool isConnected();
+
+    void sendSerialMessage(std::string message);
     
     ///\brief moves the  instrument downwards to the drawing surface
     void instrumentDown();

@@ -41,40 +41,35 @@ bool ofxOpenDrawingMachine::isConnected() {
     return false;
 }
 
+void ofxOpenDrawingMachine::sendSerialMessage(std::string message) {
+  // create placeHolder char array
+  unsigned char placeHolder[message.length()];
+
+  // copy the contents of the original string message
+  for (int i = 0; i < sizeof(placeHolder); i++) {
+    placeHolder[i] = message[i];
+  }
+  serial.writeBytes(&placeHolder[0], sizeof(placeHolder));
+}
+
 void ofxOpenDrawingMachine::instrumentUp(){
     std::string str = "M03 S" + std::to_string(servoUp) + "\n";
-    unsigned char buf[str.length()];
-    for(int i = 0; i < sizeof(buf); i++){
-            buf[i] = str[i];
-    }
-    serial.writeBytes(&buf[0], sizeof(buf));
+    sendSerialMessage(str);
 }
 
 void ofxOpenDrawingMachine::instrumentDown() {
     std::string str = "M03 S" + std::to_string(servoDown) + "\n";
-    unsigned char buf[str.length()];
-    for(int i = 0; i < sizeof(buf); i++){
-            buf[i] = str[i];
-    }
-    serial.writeBytes(&buf[0], sizeof(buf));
+    sendSerialMessage(str);
 }
 
 void ofxOpenDrawingMachine::instrumentMoveTo(float newX, float newY) {
     std::string str = "G00 X" + std::to_string(newX) + " Y" + std::to_string(newY) + "\n";
-    unsigned char buf[str.length()];
-    for(int i = 0; i < sizeof(buf); i++){
-            buf[i] = str[i];
-    }
-    serial.writeBytes(&buf[0], sizeof(buf));
+    sendSerialMessage(str);
 }
 
 void ofxOpenDrawingMachine::instrumentLineTo(float newX, float newY) {
     std::string str = "G01 X " + std::to_string(newX) + " Y " + std::to_string(newY) +  " F " + std::to_string(feedRate) + "\n";
-    unsigned char buf[str.length()];
-    for(int i = 0; i < sizeof(buf); i++){
-        buf[i] = str[i];
-    }
-    serial.writeBytes(&buf[0], sizeof(buf));
+    sendSerialMessage(str);
 }
 
 void ofxOpenDrawingMachine::instrumentArcTo(float newX, float newY, float arcRadius, bool isClockwise) {
@@ -85,11 +80,7 @@ void ofxOpenDrawingMachine::instrumentArcTo(float newX, float newY, float arcRad
     else {
         str = "G03 X " + std::to_string(newX) + " Y " + std::to_string(newY) + " R " + std::to_string(arcRadius) + " F " + std::to_string(feedRate) + "\n";
     }
-    unsigned char buf[str.length()];
-    for(int i = 0; i < sizeof(buf); i++){
-            buf[i] = str[i];
-    }
-    serial.writeBytes(&buf[0], sizeof(buf));
+    sendSerialMessage(str);
 }
           
 void ofxOpenDrawingMachine::drawLine(float startX, float startY, float endX, float endY) {
