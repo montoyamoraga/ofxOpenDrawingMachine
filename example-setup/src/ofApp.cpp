@@ -3,6 +3,9 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
+    myMachine.setup();
+    myMachine.printAvailablePorts();
 
 }
 

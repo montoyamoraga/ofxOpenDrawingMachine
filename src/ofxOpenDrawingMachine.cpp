@@ -5,20 +5,54 @@ ofxOpenDrawingMachine::ofxOpenDrawingMachine(int newServoUp, int newServoDown, i
 }
 
 void ofxOpenDrawingMachine::setup(int newServoUp, int newServoDown, int newFeedRate) {
-	
-  servoUp = newServoUp;
-  servoDown = newServoDown;
-  feedRate = newFeedRate;
-
-  serial.listDevices();
-
-  std::vector <ofSerialDeviceInfo> serialDevices = serial.getDeviceList();
-
-  int baudRate = 115200;
-
-  serial.setup(0, baudRate);
-	
+    
+    servoUp = newServoUp;
+    servoDown = newServoDown;
+    feedRate = newFeedRate;
+        
+    availablePorts = getAvailablePorts();
+    
 }
+
+std::vector<std::string> ofxOpenDrawingMachine::getAvailablePorts() {
+    
+    std::vector<std::string> ports;
+    
+    auto devices = serial.getDeviceList();
+    
+    for (auto& d: devices) {
+        ports.push_back(d.getDevicePath());
+    }
+    return ports;
+    
+}
+
+void ofxOpenDrawingMachine::printAvailablePorts() {
+    
+    for (int i = 0; i < availablePorts.size(); i++) {
+        std::cout << std::to_string(i) << ": " << availablePorts[i] << "\n";
+    }
+    
+}
+
+void ofxOpenDrawingMachine::connect(std::string newPort) {
+    
+    port = newPort;
+    
+    connect();
+    
+}
+
+void ofxOpenDrawingMachine::connect() {
+    serial.setup(port, baudRate);
+}
+
+bool ofxOpenDrawingMachine::isConnected() {
+    
+}
+
+
+
 
 void ofxOpenDrawingMachine::instrumentUp(){
     std::string str = "M03 S" + std::to_string(servoUp) + "\n";

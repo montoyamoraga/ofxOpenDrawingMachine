@@ -23,6 +23,6 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
     // new instance of machine
-    ofxOpenDrawinMachine myMachine;
+    ofxOpenDrawingMachine myMachine;
 		
 };

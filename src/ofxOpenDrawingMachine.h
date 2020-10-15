@@ -11,16 +11,25 @@ class ofxOpenDrawingMachine {
     int servoUp;
     int servoDown;
     int feedRate;
+    
+    ofSerial serial;
+    int baudRate;
+    std::string port;
+    std::vector<std::string> availablePorts;
 
     ofxOpenDrawingMachine(int newServoUp = 90, int newServoDown = 30, int newFeedRate = 4000);
-	
-    ofSerial serial;
-
+    
 	///\brief setup() sets the initial conditions
 	///\param _penUpServoVal  //range 0-90 default: 90
 	///\param _penDownServoVal  //range 0-90 default: 30
 	///\param _feedRate  //used for G1 G2 G3 default: 4000
     void setup(int _penUpServoVal = 90, int _penDownServoVal = 30, int _feedRate = 4000);
+    
+    std::vector<std::string> getAvailablePorts();
+    void printAvailablePorts();
+    void connect();
+    void connect(std::string newPort);
+    bool isConnected();
     
     ///\brief moves the  instrument downwards to the drawing surface
     void instrumentDown();
