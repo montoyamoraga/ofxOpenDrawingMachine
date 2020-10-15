@@ -2,7 +2,10 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    myMachine.setup(10,10, 10);
+    myMachine.setup();
+    myMachine.printAvailablePorts();
+    myMachine.setPort(0);
+    myMachine.connect();
 }
 
 //--------------------------------------------------------------

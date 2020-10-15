@@ -2,6 +2,11 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
+    myMachine.setup();
+    myMachine.printAvailablePorts();
+    myMachine.setPort(0);
+    myMachine.connect();
 
 }
 
