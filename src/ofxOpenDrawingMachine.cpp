@@ -54,22 +54,23 @@ void ofxOpenDrawingMachine::sendSerialMessage(std::string message) {
 
 void ofxOpenDrawingMachine::instrumentUp(){
     std::string str = "M03 S" + std::to_string(servoUp) + "\n";
-    sendSerialMessage(str);
+    
+    currentInstructions.push_back(str);
 }
 
 void ofxOpenDrawingMachine::instrumentDown() {
     std::string str = "M03 S" + std::to_string(servoDown) + "\n";
-    sendSerialMessage(str);
+    currentInstructions.push_back(str);
 }
 
 void ofxOpenDrawingMachine::instrumentMoveTo(float newX, float newY) {
     std::string str = "G00 X" + std::to_string(newX) + " Y" + std::to_string(newY) + "\n";
-    sendSerialMessage(str);
+    currentInstructions.push_back(str);
 }
 
 void ofxOpenDrawingMachine::instrumentLineTo(float newX, float newY) {
     std::string str = "G01 X " + std::to_string(newX) + " Y " + std::to_string(newY) +  " F " + std::to_string(feedRate) + "\n";
-    sendSerialMessage(str);
+    currentInstructions.push_back(str);
 }
 
 void ofxOpenDrawingMachine::instrumentArcTo(float newX, float newY, float arcRadius, bool isClockwise) {
@@ -80,7 +81,7 @@ void ofxOpenDrawingMachine::instrumentArcTo(float newX, float newY, float arcRad
     else {
         str = "G03 X " + std::to_string(newX) + " Y " + std::to_string(newY) + " R " + std::to_string(arcRadius) + " F " + std::to_string(feedRate) + "\n";
     }
-    sendSerialMessage(str);
+    currentInstructions.push_back(str);
 }
           
 void ofxOpenDrawingMachine::drawLine(float startX, float startY, float endX, float endY) {
@@ -113,4 +114,47 @@ void ofxOpenDrawingMachine::keyboardControl(int key) {
     else if (key == 'u') {
         instrumentUp();
     }
+}
+
+void ofxOpenDrawingMachine::update() {
+    
+    if (isReadyForNext && currentInstructions.size()) {
+        sendSerialMessage(currentInstructions.front());
+        std::cout << "sending: " << std::endl << currentInstructions.front() << std::endl;
+        currentInstructions.pop_front();
+        isReadyForNext = false;
+    }
+    if (!isReadyForNext && serial.available()) {
+        
+        while (serial.available() > 0) {
+            
+            char newByte = (char)serial.readByte();
+            
+            if (newByte == '\n' || newByte == '\r') {
+                
+                if (readBuffer != "") {
+                    
+                    if (readBuffer == "ok") {
+                        isReadyForNext = true;
+                        std::cout << "i got an ok" << std::endl;
+                    }
+//                    else if (readBuffer == "placeholder") {
+//                        here we can add more options to respond to
+//                    }
+                    readBuffer = "";
+                }
+            }
+            else {
+                readBuffer = readBuffer + newByte;
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    // read "ok" message from GRBL
+    
+    
 }

@@ -6,6 +6,9 @@
 // import OpenSoundControl addon
 #include "ofxOsc.h"
 
+// include list from cpp
+#include <list>
+
 
 class ofxOpenDrawingMachine {
 
@@ -34,8 +37,6 @@ class ofxOpenDrawingMachine {
 
     ///\brief index of serial port used for connection
     int portIndex;
-
-
 
     ///\brief constructor method
     ///\brief setup() sets the initial conditions
@@ -106,5 +107,16 @@ class ofxOpenDrawingMachine {
     ///\brief controls the machine with key presses
     ///\param key // value of key pressed
     void keyboardControl(int key);
+
+    void update();
+
+  private:
+
+    std::list<std::string> currentInstructions;
+    
+    // variable for signalling if machine is ready to send next instruction
+    bool isReadyForNext = false;
+    
+    std::string readBuffer;
 
 };
