@@ -52,9 +52,12 @@ void ofxOpenDrawingMachine::sendSerialMessage(std::string message) {
   serial.writeBytes(&placeHolder[0], sizeof(placeHolder));
 }
 
+void ofxOpenDrawingMachine::setServoDown(int newServoDown) {
+    servoDown = newServoDown;
+}
+
 void ofxOpenDrawingMachine::instrumentUp(){
     std::string str = "M03 S" + std::to_string(servoUp) + "\n";
-    
     currentInstructions.push_back(str);
 }
 
@@ -147,14 +150,6 @@ void ofxOpenDrawingMachine::update() {
             else {
                 readBuffer = readBuffer + newByte;
             }
-            
         }
-        
     }
-    
-    
-    
-    // read "ok" message from GRBL
-    
-    
 }

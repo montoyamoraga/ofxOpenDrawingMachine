@@ -9,7 +9,6 @@
 // include list from cpp
 #include <list>
 
-
 class ofxOpenDrawingMachine {
 
   public:
@@ -54,13 +53,18 @@ class ofxOpenDrawingMachine {
     void setup(int newBaudRate = 115200, int newServoUp = 90, int newServoDown = 30, int newFeedRate = 4000);
     
     std::vector<std::string> getAvailablePorts();
+    
     void printAvailablePorts();
+    
     void setPort(int newPortIndex);
+    
     void connect();
     
     bool isConnected();
 
     void sendSerialMessage(std::string message);
+    
+    void setServoDown(int newServoDown);
     
     ///\brief moves the  instrument downwards to the drawing surface
     void instrumentDown();

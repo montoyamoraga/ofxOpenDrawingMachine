@@ -10,24 +10,23 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    myMachine.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-	if(ofGetKeyPressed(' '))
-	{
-		float y1 = ofRandom(0, 100);
-		float x2 = ofRandom(0, 100);
-        myMachine.drawLine(0, y1, x2, 0);
-		ofDrawLine(0, y1, x2, 0);
-	}
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    
+    if(key == ' ')
+    {
+        float y1 = ofRandom(0, 100);
+        float x2 = ofRandom(0, 100);
+        myMachine.drawLine(0, y1, x2, 0);
+        ofDrawLine(0, y1, x2, 0);
+    }
 }
 
 //--------------------------------------------------------------
