@@ -66,6 +66,8 @@ class ofxOpenDrawingMachine {
     
     void setServoDown(int newServoDown);
     
+    void setOrigin();
+    
     ///\brief moves the  instrument downwards to the drawing surface
     void instrumentDown();
     

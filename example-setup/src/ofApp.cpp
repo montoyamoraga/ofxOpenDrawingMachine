@@ -3,10 +3,14 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
+    
     myMachine.setup();
     myMachine.printAvailablePorts();
     myMachine.setPort(0);
     myMachine.connect();
+//    myMachine.setServoDown(int newServoDown);
+//    myMachine.setOrigin();
 }
 
 //--------------------------------------------------------------
