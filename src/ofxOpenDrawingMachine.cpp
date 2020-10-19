@@ -100,6 +100,19 @@ void ofxOpenDrawingMachine::drawLine(float startX, float startY, float endX, flo
     instrumentUp();
 }
 
+void ofxOpenDrawingMachine::drawRectangle(float posX, float posY, float width, float height) {
+    instrumentUp();
+    // move to upper left corner
+    instrumentMoveTo(posX - width/2, posY - height/2);
+    instrumentDown();
+    // draw the rectangle clockwise
+    instrumentLineTo(posX + width/2, posY - height/2);
+    instrumentLineTo(posX + width/2, posY + height/2);
+    instrumentLineTo(posX - width/2, posY + height/2);
+    instrumentLineTo(posX - width/2, posY - height/2);
+    instrumentUp();
+}
+
 void ofxOpenDrawingMachine::drawArc(float startX, float startY, float endX, float endY, float arcRadius, bool isClockwise) {
     instrumentUp();
     instrumentMoveTo(startX, startY);

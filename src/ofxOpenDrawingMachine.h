@@ -98,6 +98,13 @@ class ofxOpenDrawingMachine {
     ///\param endY // y position of ending point
     void drawLine(float startX, float startY, float endX, float endY);
     
+    ///\brief draws rectangle between two
+    ///\param posX // x position of center of rectangle
+    ///\param posY // y position of center of rectangle
+    ///\param width // width of rectangle
+    ///\param height // height of rectangle
+    void drawRectangle(float posX, float posY, float width, float height);
+    
     ///\brief draws arc between start point and end point
     ///\param startX // x position of starting point
     ///\param startY // y position of starting point
