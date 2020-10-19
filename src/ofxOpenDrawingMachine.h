@@ -128,7 +128,7 @@ class ofxOpenDrawingMachine {
     std::list<std::string> currentInstructions;
     
     // variable for signalling if machine is ready to send next instruction
-    bool isReadyForNext = false;
+    bool isReadyForNext = true;
     
     std::string readBuffer;
 
