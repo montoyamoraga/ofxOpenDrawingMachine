@@ -129,7 +129,10 @@ void ofxOpenDrawingMachine::drawCircle(float posX, float posY, float radius) {
 }
 
 void ofxOpenDrawingMachine::keyboardControl(int key) {
-    if (key == 'd') {
+    if (key == ' ') {
+        setOrigin();
+    }
+    else if (key == 'd') {
         instrumentDown();
     }
     else if (key == 'u') {
