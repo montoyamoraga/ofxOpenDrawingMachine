@@ -3,7 +3,8 @@
 #include "ofMain.h"
 #include "ofxOSC.h"
 
-#define SENDERHOST "127.0.0.1"
+//#define SENDERHOST "127.0.0.1"
+#define SENDERHOST "192.168.99.193"
 #define SENDERPORT 12345
 
 class ofApp : public ofBaseApp{
